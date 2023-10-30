@@ -16,8 +16,8 @@ description: |-
 
 # vsphere_host_pci_device
 
-The `vsphere_host_pci_device` data source can be used to discover the device ID
-of a vSphere host's PCI device. This can then be used with
+The `vsphere_host_pci_device` data source can be used to discover the device ID(s)
+of a vSphere host's PCI device(s). This can then be used with
 `vsphere_virtual_machine`'s `pci_device_id`.
 
 ## Example Usage with Vendor ID and Class ID
