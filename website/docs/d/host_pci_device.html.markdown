@@ -70,7 +70,7 @@ The following arguments are supported:
 [docs-about-morefs]: /docs/providers/vsphere/index.html#use-of-managed-object-references-by-the-vsphere-provider
 
 ~> **NOTE:** `name_regex`, `class_id`, and `vendor_id` can all be used together.
-* They are evaluated and filter PCI Device results in the above order.
+The above arguments are evaluated and filter PCI Device results in the above order.
 
 ## Attribute Reference
 
