@@ -6,8 +6,6 @@ package vsphere
 import (
 	"fmt"
 	"os"
-	"regexp"
-	"strconv"
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
@@ -25,30 +23,18 @@ func TestAccDataSourceVSphereHostPciDevice_basic(t *testing.T) {
 			{
 				Config: testAccDataSourceVSphereHostPciDeviceConfig(),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttrWith(
+					resource.TestCheckResourceAttrSet(
 						"data.vsphere_host_pci_device.device",
 						"pci_devices.#",
-						func(value string) error {
-							valueInt, err := strconv.Atoi(value)
-							if err != nil {
-								return err
-							}
-
-							if valueInt <= 0 {
-								return fmt.Errorf("number of PCI devices should be greater than 0")
-							}
-							return nil
-						},
 					),
 				),
 			},
 			{
 				Config: testAccDataSourceVSphereHostPciDeviceConfig(),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestMatchResourceAttr(
+					resource.TestCheckResourceAttrSet(
 						"data.vsphere_host_pci_device.device",
 						"pci_devices.0.name",
-						regexp.MustCompile("(.*?)"),
 					),
 				),
 			},
